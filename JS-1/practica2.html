@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>Precio medio: <span id="resMedio"></span></h1>
+        <h2>Precio con IVA: <span id="resIVA"></span></h2>
+
+        <input type="text" oninput="datosUsuario()" name id="nombre">
+        <input type="text" oninput="datosUsuario()" name id="apellido">
+
+        <h3 id="usuario"></h3>
+
+        <p>Contraseña</p>
+        <input type="password" name id="pass">
+        <button onclick="checkPass()">Entrar</button>
+
+        <script src="practica2.js"></script>
+    </body>
+</html>

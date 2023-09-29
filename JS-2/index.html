@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    </head>
+    <body
+        class="bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 h-screen flex items-center justify-center">
+
+        <div class="p-10 bg-white w-[500px] rounded-lg">
+            <h1 id="title" class="text-xl font-semibold mb-6 text-center"></h1>
+
+            <div class="flex flex-col space-y-1">
+                <button
+                    onclick="checkAnswer(0)"
+                    id="btn1"
+                    class="bg-slate-300 p-3 rounded-lg transition-all hover:bg-slate-400">Respuesta
+                    X</button>
+                <button
+                    onclick="checkAnswer(1)"
+                    id="btn2"
+                    class="bg-slate-300 p-3 rounded-lg transition-all hover:bg-slate-400">Respuesta
+                    X</button>
+                <button
+                    onclick="checkAnswer(2)"
+                    id="btn3"
+                    class="bg-slate-300 p-3 rounded-lg transition-all hover:bg-slate-400">Respuesta
+                    X</button>
+            </div>
+
+            <div class="flex justify-between mt-4 items-center">
+                <p id="page">1 de 10 preguntas</p>
+                <button
+                    onclick="next()"
+                    class="px-4 py-2 bg-blue-500 text-white rounded-lg transition-all hover:bg-blue-700">Siguiente</button>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
