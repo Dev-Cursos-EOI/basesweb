@@ -54,9 +54,11 @@ const questions = [
 let pos = 0
 let puedeContestar = true
 
+let correctas = 0
+
 function initQuestion() {
 
-    document.getElementById("page").innerHTML = (pos + 1) + " de " + questions.length +" preguntas";
+    document.getElementById("page").innerHTML = (pos + 1) + " de " + questions.length + " preguntas";
 
     document.getElementById("title").innerHTML = questions[pos].title;
 
@@ -68,7 +70,7 @@ function initQuestion() {
 function checkAnswer(idPressed) {
     console.log("Has pulsado", idPressed)
 
-    if(puedeContestar == false) {
+    if (puedeContestar == false) {
         return
     }
 
@@ -76,16 +78,18 @@ function checkAnswer(idPressed) {
 
     // si el botón que ha pulsado el usuario es la respuesta correcta de la pregunta actual
     // si idPressed es igual a questions[pos].correct
-    if(idPressed == questions[pos].correct) {
-        
-        let btnPulsado = "btn"+ (idPressed + 1)
+    if (idPressed == questions[pos].correct) {
+
+        let btnPulsado = "btn" + (idPressed + 1)
         document.getElementById(btnPulsado).classList.remove("bg-slate-300")
         document.getElementById(btnPulsado).classList.add("bg-green-500")
-        
+
+        correctas++
+
     } else {
         console.log("No es correcta")
 
-        let btnPulsado = "btn"+ (idPressed + 1)
+        let btnPulsado = "btn" + (idPressed + 1)
         document.getElementById(btnPulsado).classList.remove("bg-slate-300")
         document.getElementById(btnPulsado).classList.add("bg-red-500")
 
@@ -95,7 +99,17 @@ function checkAnswer(idPressed) {
 
 // btn de siguiente
 function next() {
+
+    // si la pregunta actual (pos) es la última (questions.length)
+    if (pos == questions.length - 1) {
+        document.getElementById("quiz").classList.add("hidden")
+        document.getElementById("resultado").classList.remove("hidden")
+        document.getElementById("score").innerHTML = "Correctas " + correctas + "/" + questions.length
+        return
+    }
+
     pos++
+
     initQuestion()
     reset()
     puedeContestar = true
@@ -107,6 +121,15 @@ function reset() {
     document.getElementById("btn1").className = estilo
     document.getElementById("btn2").className = estilo
     document.getElementById("btn3").className = estilo
+}
+
+function restartQuiz() {
+    document.getElementById("quiz").classList.remove("hidden")
+    document.getElementById("resultado").classList.add("hidden")
+    pos = 0
+    correctas = 0
+    puedeContestar = true
+    initQuestion()
 }
 
 // primera ejecucion

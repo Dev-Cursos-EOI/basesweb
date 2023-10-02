@@ -9,7 +9,7 @@
     <body
         class="bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 h-screen flex items-center justify-center">
 
-        <div class="p-10 bg-white w-[500px] rounded-lg">
+        <div id="quiz" class="p-10 bg-white w-[500px] rounded-lg">
             <h1 id="title" class="text-xl font-semibold mb-6 text-center"></h1>
 
             <div class="flex flex-col space-y-1">
@@ -36,6 +36,16 @@
                     onclick="next()"
                     class="px-4 py-2 bg-blue-500 text-white rounded-lg transition-all hover:bg-blue-700">Siguiente</button>
             </div>
+        </div>
+
+        <!-- resultado -->
+        <div id="resultado"
+            class="hidden p-10 bg-white w-[500px] rounded-lg text-center">
+            <h1 class="text-xl font-bold mb-4">¡Quiz terminado!</h1>
+            <p id="score">Correctas 10/10</p>
+            <button onclick="restartQuiz()"
+                class="bg-indigo-500 p-4 rounded text-white mt-6">Volver a
+                empezar</button>
         </div>
 
         <script src="main.js"></script>
